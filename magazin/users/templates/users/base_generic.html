@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Магазин{% endblock %}</title>
+    <!-- Стили -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Можно подключить дополнительные стили -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'users:profile' %}">Профиль</a></li>
+                <li><a href="{% url 'products:products_list' %}">Товары</a></li>
+                <li><a href="{% url 'accounts:login' %}">Войти</a></li>
+                <li><a href="{% url 'accounts:logout' %}">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Основное содержимое страницы -->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Магазин</p>
+    </footer>
+</body>
+</html>

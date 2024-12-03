@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form method="post" enctype="multipart/form-data">  <!-- Не забудьте указать enctype для загрузки файлов -->
+    {% csrf_token %}
+
+    <label for="username">Логин:</label>
+    <input type="text" name="username" id="username" required>
+<br>
+    <label for="first_name">Имя:</label>
+    <input type="text" name="first_name" id="first_name" required>
+</br>
+        <br>
+    <label for="last_name">Фамилия:</label>
+    <input type="text" name="last_name" id="last_name" required>
+</br>
+        <br>
+    <label for="patronymic">Отчество:</label>
+    <input type="text" name="patronymic" id="patronymic">
+</br>
+        <br>
+    <label for="age">Возраст:</label>
+    <input type="number" name="age" id="age" min="0">
+</br>
+        <br>
+    <label for="about">О себе:</label>
+    <textarea name="about" id="about"></textarea>
+</br>
+    <label for="photo">Фото:</label>
+    <input type="file" name="photo" id="photo">
+
+    <label for="password">Пароль:</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+    <a href="{% url 'login' %}">Уже есть аккаунт? Войти</a>
+</body>
+</html>

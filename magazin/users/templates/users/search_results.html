@@ -1,0 +1,24 @@
+<!-- users/templates/users/search_results.html -->
+
+{% block content %}
+  <h1>Поиск товаров</h1>
+
+  <form method="get" action="{% url 'search_product' %}">
+    {{ form.as_p }}
+    <button type="submit">Найти</button>
+  </form>
+
+  {% if products %}
+    <h2>Результаты поиска:</h2>
+    <ul>
+      {% for product in products %}
+        <li>
+          <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a> - {{ product.price }} руб.
+          <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="width: 100px; height: auto; vertical-align: middle;">
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Товары не найдены</p>
+  {% endif %}
+{% endblock %}
